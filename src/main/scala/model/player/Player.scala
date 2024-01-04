@@ -39,22 +39,40 @@ class Player(val name: String,
   private var settlements: ArrayBuffer[Settlement] =
     (for (_ <- 1 to 5) yield new Settlement(this)).to(ArrayBuffer)
 
+  /** The settlements placed by the player. */
+  private var placedSettlements: ArrayBuffer[Settlement] = ArrayBuffer()
+
   /** Gets the number of settlements of the player. */
   def getSettlements: Int = settlements.size
+
+  /** Gets the number of settlements placed by the player. */
+  def getPlacedSettlements: Int = placedSettlements.size
 
   /** The cities of the player. */
   private var cities: ArrayBuffer[City] =
     (for (_ <- 1 to 4) yield new City(this)).to(ArrayBuffer)
 
+  /** The cities placed by the player. */
+  private var placedCities: ArrayBuffer[City] = ArrayBuffer()
+
   /** Gets the number of cities of the player. */
   def getCities: Int = cities.size
+
+  /** Gets the number of cities placed by the player. */
+  def getPlacedCities: Int = placedCities.size
 
   /** The roads of the player. */
   private var roads: ArrayBuffer[Road] =
     (for (_ <- 1 to 15) yield new Road(this)).to(ArrayBuffer)
 
+  /** The roads placed by the player. */
+  private var placedRoads: ArrayBuffer[Road] = ArrayBuffer()
+
   /** Gets the number of roads of the player. */
   def getRoads: Int = roads.size
+
+  /** Gets the number of roads placed by the player. */
+  def getPlacedRoads: Int = placedRoads.size
 
   /** The hand of resource cards of the player. */
   private val resourceCards: mutable.Map[String, Int] =
@@ -69,12 +87,6 @@ class Player(val name: String,
 
   /** Gets a copy of the hand of development cards of the player. */
   def getDevelopmentCards: mutable.Map[String, Int] = mutable.Map() ++ developmentCards
-
-  /** The number of roads placed by the player. */
-  private var placedRoads: Int = 0
-
-  /** Gets the number of roads placed by the player. */
-  def getPlacedRoads: Int = placedRoads
 
   /** The number of knights played by the player. */
   private var army: Int = 0

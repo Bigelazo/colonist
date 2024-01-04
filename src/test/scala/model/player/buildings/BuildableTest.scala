@@ -30,7 +30,4 @@ class BuildableTest extends FunSuite {
     assertEquals(building.isUpgradable, false)
   }
 
-  test("A building should know if it's placed on the board") {
-    assertEquals(building.isPlacedOnBoard, false)
-  }
 }

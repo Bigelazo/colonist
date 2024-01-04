@@ -24,6 +24,12 @@ class PlayerTest extends FunSuite {
     assertEquals(player.getRoads, 15)
   }
 
+  test("A player should start with 0 placed settlements, cities and roads") {
+    assertEquals(player.getPlacedSettlements, 0)
+    assertEquals(player.getPlacedCities, 0)
+    assertEquals(player.getPlacedRoads, 0)
+  }
+
   test("A player should start with an empty hand of resource cards") {
     assertEquals(player.getResourceCards("Brick"), 0)
     assertEquals(player.getResourceCards("Grain"), 0)

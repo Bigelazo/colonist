@@ -18,9 +18,6 @@ protected abstract class Building(private val owner: Player) extends Buildable {
       /** True if the building is upgradable, false otherwise. */
       protected val upgradable: Boolean
 
-      /** True if the building is placed on the board, false otherwise. */
-      private var placedOnBoard: Boolean = false
-
       /** Gets the cost of resources of the building. */
       def getCost: Map[String, Int] = cost
 
@@ -30,6 +27,4 @@ protected abstract class Building(private val owner: Player) extends Buildable {
       /** Returns true if the building is upgradable, false otherwise. */
       def isUpgradable: Boolean = upgradable
 
-      /** Returns true if the building is placed on the board, false otherwise. */
-      def isPlacedOnBoard: Boolean = placedOnBoard
 }

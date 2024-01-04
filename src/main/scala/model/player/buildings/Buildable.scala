@@ -17,6 +17,4 @@ trait Buildable {
     /** Returns true if the building is upgradable, false otherwise. */
     def isUpgradable: Boolean
 
-    /** Returns true if the building is placed on the board, false otherwise. */
-    def isPlacedOnBoard: Boolean
 }
