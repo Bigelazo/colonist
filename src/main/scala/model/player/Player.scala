@@ -1,6 +1,10 @@
 package model.player
 
+import model.player.buildings.edge.Road
+import model.player.buildings.vertex.{City, Settlement}
+
 import scala.collection.mutable
+import scala.collection.mutable.ArrayBuffer
 
 /**
  * A player in the game. A player has a name, a color, a victory points counter, a predefined number
@@ -14,11 +18,11 @@ import scala.collection.mutable
  * @param name The name of the player.
  * @param color The color of the player.
  * @example {{{
- * val player = new Player("Player 1", "Blue")
- * Creates a new player with the name "Player 1" and the color "Blue", and initializes the victory
- * points counter to 0, sets 5 settlements, 4 cities and 15 roads, and the empty hands of resource
- * and development cards, and sets the road counter and the army counter to 0, and the longest road
- * and the largest army to false.
+ *          val player = new Player("Player 1", "Blue")
+ *          Creates a new player with the name "Player 1" and the color "Blue", and initializes the
+ *          victory points counter to 0, sets 5 settlements, 4 cities and 15 roads, and the empty
+ *          hands of resource and development cards, and sets the road counter and the army counter
+ *          to 0, and the longest road and the largest army to false.
  * }}}
  *
  */
@@ -31,23 +35,26 @@ class Player(val name: String,
   /** Gets the number of victory points of the player. */
   def getVictoryPoints: Int = victoryPoints
 
-  /** The number of settlements of the player. */
-  private var settlements: Int = 5
+  /** The settlements of the player. */
+  private var settlements: ArrayBuffer[Settlement] =
+    (for (_ <- 1 to 5) yield new Settlement(this)).to(ArrayBuffer)
 
   /** Gets the number of settlements of the player. */
-  def getSettlements: Int = settlements
+  def getSettlements: Int = settlements.size
 
-  /** The number of cities of the player. */
-  private var cities: Int = 4
+  /** The cities of the player. */
+  private var cities: ArrayBuffer[City] =
+    (for (_ <- 1 to 4) yield new City(this)).to(ArrayBuffer)
 
   /** Gets the number of cities of the player. */
-  def getCities: Int = cities
+  def getCities: Int = cities.size
 
-  /** The number of roads of the player. */
-  private var roads: Int = 15
+  /** The roads of the player. */
+  private var roads: ArrayBuffer[Road] =
+    (for (_ <- 1 to 15) yield new Road(this)).to(ArrayBuffer)
 
   /** Gets the number of roads of the player. */
-  def getRoads: Int = roads
+  def getRoads: Int = roads.size
 
   /** The hand of resource cards of the player. */
   private val resourceCards: mutable.Map[String, Int] =
