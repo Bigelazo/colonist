@@ -84,15 +84,13 @@ Player pieces:
     - [x] Roads
     - [x] Victory points
 
-- [ ] Cards:
-    - [ ] Resource cards
-    - [ ] Development cards
-    - [ ] Victory point cards
+- [x] Cards:
+    - [x] Resource cards
+    - [x] Development cards
 
-- [ ] Bank:
-    - [ ] Resource cards
-    - [ ] Development cards
-    - [ ] Victory point cards
+- [x] Bank:
+    - [x] Resource cards
+    - [x] Development cards
 
 ## Functionalities to implement:
 
@@ -128,7 +126,7 @@ Player pieces:
 
 ## Design patterns to implement:
 
-- [ ] Singleton: for the bank to be unique.
+- [x] Singleton: for the bank to be unique.
 
 - [ ] Factory: for the cards to be created by the bank and given to the players.
 
